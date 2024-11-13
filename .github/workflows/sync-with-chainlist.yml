@@ -1,0 +1,40 @@
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Generate list
+      run: npm run import
+    
+    - name: Check if this caused a change
+      id: git-check
+      run: |
+        git diff --exit-code || exit 0
+        echo "No changes detected"
+        exit 1
+    
+    - name: Run tests to make sure everything is coherent
+      run: npm test
+
+    - name: Increment the package.json version file
+      run: npm version patch -m "🚀 Bump version to %s"
+    
+    - name: Commit updated file
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_NAME: ${{ github.repository }}
+        USERNAME: ${{ github.repository_owner }}
+      run: |
+        git checkout main
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "🤖 Import updated chainlist rpcs" || exit 0
+        git remote set-url --push origin https://$USERNAME:$GITHUB_TOKEN@github.com/$REPO_NAME
+        git push

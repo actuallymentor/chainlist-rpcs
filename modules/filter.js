@@ -11,7 +11,7 @@ import { chains_by_name } from './chains'
  * @param {Object} params - The parameters for retrieving RPCs.
  * @param {number} [params.chain_id] - The ID of the blockchain.
  * @param {string} [params.chain_name] - The name of the blockchain.
- * @param {Array} [params.tracking=[]] - An array of tracking objects. Options: none, limited, yes.
+ * @param {Array} [params.allowed_tracking=[]] - An array of tracking objects. Options: none, limited, yes.
  * @returns {Array} The list of RPCs for the specified blockchain.
  * @throws {Error} If both chain_id and chain_name are specified but do not match.
  */
@@ -46,9 +46,10 @@ export function get_rpcs_for_chain( { chain_id, chain_name, allowed_tracking=[] 
  * @param {Object} params - The parameters object.
  * @param {Array<string>} [params.chain_ids=[]] - An array of chain IDs.
  * @param {Array<string>} [params.chain_names=[]] - An array of chain names.
+ * @param {Array} [params.allowed_tracking=[]] - An array of tracking objects. Options: none, limited, yes.
  * @returns {Array} An array of RPCs for the specified chains.
  */
-export function get_rcpcs_for_chains( { chain_ids=[], chain_names=[], tracking=[] } ) {
+export function get_rcpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tracking=[] } ) {
 
     // If chain names were specified, get the chain ids
     chain_ids = [
@@ -56,13 +57,31 @@ export function get_rcpcs_for_chains( { chain_ids=[], chain_names=[], tracking=[
         ...chain_names.map( chain_name => chains_by_name[chain_name] )
     ]
 
-    // Dedupe the chain ids
+    // If chain ids were specified, get the chain names
+    chain_names = [
+        ...chain_names,
+        ...chain_ids.map( chain_id => chains[chain_id] )
+    ]
+
+    // Dedupe the chain arrays
     chain_ids = [ ...new Set( chain_ids ) ]
+    chain_names = [ ...new Set( chain_names ) ]
 
     // Remove undefined entries
     chain_ids = chain_ids.filter( chain_id => chain_id )
+    chain_names = chain_names.filter( chain_name => chain_name )
 
     // Get the rpcs for each chain id
-    return chain_ids.map( chain_id => get_rpcs_for_chain( { chain_id } ) )
+    const rpcs_by_id = chain_ids.reduce( ( acc, chain_id ) => {
+        acc[chain_id] = get_rpcs_for_chain( { chain_id, allowed_tracking } )
+        return acc
+    }, {} )
+    const rpcs_by_name = chain_names.reduce( ( acc, chain_name ) => {
+        acc[chain_name] = get_rpcs_for_chain( { chain_name, allowed_tracking } )
+        return acc
+    }, {} )
+
+    // Return the rpcs
+    return { ...rpcs_by_id, ...rpcs_by_name }
 
 }

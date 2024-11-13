@@ -87,7 +87,8 @@ describe( 'get_rcpcs_for_chains', () => {
 
         const chain_ids = [ 1, 42161 ]
         const result = get_rcpcs_for_chains( { chain_ids } )
-        expect( result.length ).to.be.greaterThan( 1 )
+        expect( result[1].length ).to.be.greaterThan( 1 )
+        expect( result[42161].length ).to.be.greaterThan( 1 )
 
     } )
 
@@ -95,7 +96,8 @@ describe( 'get_rcpcs_for_chains', () => {
 
         const chain_names = [ 'ethereum', 'arbitrum' ]
         const result = get_rcpcs_for_chains( { chain_names } )
-        expect( result.length ).to.be.greaterThan( 1 )
+        expect( result[ 'ethereum' ].length ).to.be.greaterThan( 1 )
+        expect( result[ 'arbitrum' ].length ).to.be.greaterThan( 1 )
 
     } )
 
