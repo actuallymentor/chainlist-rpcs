@@ -1,6 +1,6 @@
 # Unofficial chainlist RPC npm module
 
-Installation: `npm install -S `
+Installation: `npm install -S chainlist-rpcs`
 
 NOTE: This module is unofficial and not maintained by Chainlist. If you want to add RPC urls, please refer to the [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist) repository.
 
@@ -11,7 +11,7 @@ NOTE 2: Keep in mind these RPCs are public and may have rate limits and imperfed
 The module exports constants that are objects you can access. The `rpcs` and `chains_by_id` constants which equal the chainlist sources [in this folder of their repository](https://github.com/DefiLlama/chainlist/tree/main/constants). The `chains_by_name` constant is an object that maps chain names to their id.
 
 ```js
-import { rpcs, chains_by_id, chains_by_name } from 'chainlist-rpc'
+import { rpcs, chains_by_id, chains_by_name } from 'chainlist-rpcs'
 
 console.log( chains[1] ) // Output: "ethereum"
 console.log( rpcs[1] ) // { rpcs: [ { url: String, tracking: String, trackingDetauls: String } ] }
@@ -51,7 +51,7 @@ export function get_rcpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tr
 Example usage:
 
 ```js
-import { get_rcpcs_for_chain, get_rcpcs_for_chains } from 'chainlist-rpc'
+import { get_rcpcs_for_chain, get_rcpcs_for_chains } from 'chainlist-rpcs'
 
 const single_chain_by_id = get_rcpcs_for_chain( { chain_id: 1 } ) // Output: [ { url: String, tracking: String, trackingDetauls: String } ]
 const single_chain_by_name = get_rcpcs_for_chain( { chain_name: "ethereum" } ) // Output: [ { url: String, tracking: String, trackingDetauls: String } ]

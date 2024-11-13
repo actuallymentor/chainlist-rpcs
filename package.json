@@ -1,9 +1,13 @@
 {
-  "name": "chainlist",
-  "version": "0.0.3",
+  "name": "chainlist-rpcs",
+  "version": "0.1.0",
   "type": "module",
   "description": "Wrapper around the rpcs as published by DefiLlama/chainlist.",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actuallymentor/chainlist-rpcs.git"
+  },
   "scripts": {
     "import:chains": "curl -s https://raw.githubusercontent.com/DefiLlama/chainlist/refs/heads/main/constants/chainIds.js > constants/chainIds.js",
     "import:rpcs": "curl -s https://raw.githubusercontent.com/DefiLlama/chainlist/refs/heads/main/constants/extraRpcs.js > constants/extraRpcs.js",
