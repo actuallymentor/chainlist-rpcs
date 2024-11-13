@@ -1,0 +1,28 @@
+{
+  "name": "chainlist",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Wrapper around the rpcs as published by DefiLlama/chainlist.",
+  "main": "app.js",
+  "scripts": {
+    "import:chains": "curl -s https://raw.githubusercontent.com/DefiLlama/chainlist/refs/heads/main/constants/chainIds.js > constants/chainIds.js",
+    "import:rpcs": "curl -s https://raw.githubusercontent.com/DefiLlama/chainlist/refs/heads/main/constants/extraRpcs.js > constants/extraRpcs.js",
+    "import:llama_rpcs": "curl -s https://raw.githubusercontent.com/DefiLlama/chainlist/refs/heads/main/constants/llamaNodesRpcs.js > constants/llamaNodesRpcs.js",
+    "import": "npm run import:chains && npm run import:rpcs && npm run import:llama_rpcs",
+    "lint": "eslint --fix app.js modules utils",
+    "prepare": "husky",
+    "test": "vitest"
+  },
+  "author": "Mentor <mentor@palokaj.co> (http://github.com/actuallymentor)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
+    "@babel/preset-react": "^7.25.9",
+    "airier": "^0.0.9",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "husky": "^9.1.6",
+    "vitest": "^2.1.5"
+  }
+}
