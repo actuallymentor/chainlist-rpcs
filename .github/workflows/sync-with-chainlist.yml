@@ -24,7 +24,7 @@ jobs:
       run: npm test
 
     - name: Increment the package.json version file
-      run: npm version patch -m "🚀 Bump version to %s"
+      run: npm version patch -m "🤖 Import updated chainlist rpcs, bump version to %s"
     
     - name: Commit updated file
       env:
