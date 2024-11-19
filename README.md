@@ -44,28 +44,28 @@ export function get_rpcs_for_chain( { chain_id, chain_name, allowed_tracking=[] 
  * @param {Array} [params.allowed_tracking=[]] - An array of tracking objects. Options: none, limited, yes.
  * @returns {Array} An array of RPCs for the specified chains.
  */
-export function get_rpcs_for_chainss( { chain_ids=[], chain_names=[], allowed_tracking=[] } )
+export function get_rpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tracking=[] } )
 
 ```
 
 Example usage:
 
 ```js
-import { get_rpcs_for_chains, get_rpcs_for_chainss } from 'chainlist-rpcs'
+import { get_rpcs_for_chains, get_rpcs_for_chains } from 'chainlist-rpcs'
 
 const single_chain_by_id = get_rpcs_for_chains( { chain_id: 1 } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
 const single_chain_by_name = get_rpcs_for_chains( { chain_name: "ethereum" } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
 
-const multiple_chains_by_id = get_rpcs_for_chainss( { chain_ids: [1, 42161] } ) // Output: { 1: [ { url: String, tracking: String, trackingDetails: String } ], 42161: [ { url: String, tracking: String, trackingDetails: String } ], ethereum: [ { url: String, tracking: String, trackingDetails: String } ], arbitrum: [ { url: String, tracking: String, trackingDetails: String } ] }
+const multiple_chains_by_id = get_rpcs_for_chains( { chain_ids: [1, 42161] } ) // Output: { 1: [ { url: String, tracking: String, trackingDetails: String } ], 42161: [ { url: String, tracking: String, trackingDetails: String } ], ethereum: [ { url: String, tracking: String, trackingDetails: String } ], arbitrum: [ { url: String, tracking: String, trackingDetails: String } ] }
 
-const multiple_chains_by_name = get_rpcs_for_chainss( { chain_names: ["ethereum", "arbitrum"] } ) // Output: { 1: [ { url: String, tracking: String, trackingDetails: String } ], 42161: [ { url: String, tracking: String, trackingDetails: String } ], ethereum: [ { url: String, tracking: String, trackingDetails: String } ], arbitrum: [ { url: String, tracking: String, trackingDetails: String } ] }
+const multiple_chains_by_name = get_rpcs_for_chains( { chain_names: ["ethereum", "arbitrum"] } ) // Output: { 1: [ { url: String, tracking: String, trackingDetails: String } ], 42161: [ { url: String, tracking: String, trackingDetails: String } ], ethereum: [ { url: String, tracking: String, trackingDetails: String } ], arbitrum: [ { url: String, tracking: String, trackingDetails: String } ] }
 
 ```
 
 ## Example usage with viem
 
 ```js
-import { get_rpcs_for_chains, get_rpcs_for_chainss } from 'chainlist-rpc'
+import { get_rpcs_for_chains, get_rpcs_for_chains } from 'chainlist-rpcs'
 import { arbitrum } from 'viem/chains'
 import { createPublicClient, fallback, http, formatEther } from 'viem'
 
