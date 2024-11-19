@@ -38,15 +38,6 @@ jobs:
     
     - name: Run tests to make sure everything is coherent
       run: npm test
-
-    - name: Set up git identity
-      run: |
-        git checkout main
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-
-    - name: Increment the package.json version file
-      run: npm version patch -f -m "🤖 Import updated chainlist rpcs, bump version to %s"
     
     - name: Push updated patch commit
       env:
@@ -54,5 +45,9 @@ jobs:
         REPO_NAME: ${{ github.repository }}
         USERNAME: ${{ github.repository_owner }}
       run: |
+        git checkout main
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git remote set-url --push origin https://$USERNAME:$GITHUB_TOKEN@github.com/$REPO_NAME
+        npm version patch -f -m "🤖 Import updated chainlist rpcs, bump version to %s"
         git push
