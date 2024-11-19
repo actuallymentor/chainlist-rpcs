@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-import { get_rcpcs_for_chains, get_rpcs_for_chain } from '../modules/filter'
+import { get_rpcs_for_chains, get_rpcs_for_chain } from '../modules/filter'
 
 describe( 'get_rpcs_for_chain', () => {
 
@@ -81,12 +81,12 @@ describe( 'get_rpcs_for_chain', () => {
 
 } )
 
-describe( 'get_rcpcs_for_chains', () => {
+describe( 'get_rpcs_for_chains', () => {
 
     it( 'should return RPCs when called with valid chain_ids', () => {
 
         const chain_ids = [ 1, 42161 ]
-        const result = get_rcpcs_for_chains( { chain_ids } )
+        const result = get_rpcs_for_chains( { chain_ids } )
         expect( result[1].length ).to.be.greaterThan( 1 )
         expect( result[42161].length ).to.be.greaterThan( 1 )
 
@@ -95,7 +95,7 @@ describe( 'get_rcpcs_for_chains', () => {
     it( 'should return RPCs when called with valid chain_names', () => {
 
         const chain_names = [ 'ethereum', 'arbitrum' ]
-        const result = get_rcpcs_for_chains( { chain_names } )
+        const result = get_rpcs_for_chains( { chain_names } )
         expect( result[ 'ethereum' ].length ).to.be.greaterThan( 1 )
         expect( result[ 'arbitrum' ].length ).to.be.greaterThan( 1 )
 

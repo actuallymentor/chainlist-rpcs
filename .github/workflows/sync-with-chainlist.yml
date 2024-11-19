@@ -8,6 +8,7 @@ on:
       - ".github/workflows/sync-with-chainlist.yml"
       - "modules/**"
       - "app.js"
+      - "tests/**"
 
 jobs:
   build:
