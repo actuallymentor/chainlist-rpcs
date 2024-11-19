@@ -49,7 +49,7 @@ export function get_rpcs_for_chain( { chain_id, chain_name, allowed_tracking=[] 
  * @param {Array} [params.allowed_tracking=[]] - An array of tracking objects. Options: none, limited, yes.
  * @returns {Array} An array of RPCs for the specified chains.
  */
-export function get_rcpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tracking=[] } ) {
+export function get_rpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tracking=[] } ) {
 
     // If chain names were specified, get the chain ids
     chain_ids = [
