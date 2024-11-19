@@ -11,7 +11,7 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
       
     # Set up node and install frontend dependencies
@@ -27,18 +27,20 @@ jobs:
     - name: Generate list
       run: npm run import
     
-    - name: Check if this caused a change
-      id: git-check
+    - name: Check for any changes and exit if none
       run: |
-        git diff --exit-code || exit 0
-        echo "No changes detected"
-        exit 1
+        if git diff --quiet HEAD^ HEAD; then
+          echo "No changes detected. Exiting gracefully."
+          exit 0
+        else
+          echo "Changes detected. Continuing with the workflow."
+        fi
     
     - name: Run tests to make sure everything is coherent
       run: npm test
 
     - name: Increment the package.json version file
-      run: npm version patch -m "🤖 Import updated chainlist rpcs, bump version to %s"
+      run: npm version patch -f -m "🤖 Import updated chainlist rpcs, bump version to %s"
     
     - name: Commit updated file
       env:
