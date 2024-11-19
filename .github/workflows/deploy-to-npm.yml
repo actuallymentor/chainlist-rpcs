@@ -17,7 +17,7 @@ jobs:
     steps:
       # Environment and dependency setup
       - name: Cloning repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       # Set up node and install frontend dependencies
       - name: Set up Node.js (.nvmrc)
