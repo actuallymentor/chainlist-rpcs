@@ -34,7 +34,7 @@ jobs:
     
     - name: Check for any changes and exit if none
       run: |
-        if git diff --quiet HEAD^ HEAD; then
+        if git diff --quiet; then
           echo "No changes detected. Exiting gracefully."
           exit 0
         else
