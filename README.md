@@ -1,6 +1,6 @@
 # Unofficial chainlist RPC npm module
 
-Installation: `npm install -S chainlist-rpcs`.
+Installation: `npm install -S chainlist-rpcs`. See [npm package](https://www.npmjs.com/package/chainlist-rpcs).
 
 NOTE: This module is unofficial and not maintained by Chainlist. If you want to add RPC urls, please refer to the [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist) repository.
 
