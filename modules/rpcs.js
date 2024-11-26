@@ -10,7 +10,7 @@ const simple_rpc_list = Object.keys( rpcs ).reduce( ( acc, chainId ) => {
 Object.keys( simple_rpc_list ).forEach( chainId => {
     simple_rpc_list[chainId] = simple_rpc_list[chainId].map( rpc => {
         if( typeof rpc === 'string' ) {
-            return { url: rpc }
+            return { url: rpc, tracking: 'unknown', trackingDetails: 'unknown' }
         }
         return rpc
     } )

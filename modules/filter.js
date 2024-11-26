@@ -3,8 +3,6 @@ import rpcs from '../constants/extraRpcs'
 import chains from '../constants/chainIds'
 import { chains_by_name } from './chains'
 
-
-
 /**
  * Retrieves the RPC urls for a specified blockchain.
  *
