@@ -1,6 +1,6 @@
 # Unofficial chainlist RPC npm module
 
-Installation: `npm install -S chainlist-rpcs`
+Installation: `npm install -S chainlist-rpcs`.
 
 NOTE: This module is unofficial and not maintained by Chainlist. If you want to add RPC urls, please refer to the [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist) repository.
 
@@ -14,7 +14,7 @@ The module exports constants that are objects you can access. The `rpcs` and `ch
 import { rpcs, chains_by_id, chains_by_name } from 'chainlist-rpcs'
 
 console.log( chains[1] ) // Output: "ethereum". Note that this is by chain id and not by index. 1 here refers to chain id 1.
-console.log( rpcs[1] ) // { rpcs: [ { url: String, tracking: String, trackingDetails: String } ] }.
+console.log( rpcs[1] ) // [ { url: String, tracking: String, trackingDetails: String } ].
 console.log( chains_by_name["ethereum"] ) // Output: 1
 ```
 

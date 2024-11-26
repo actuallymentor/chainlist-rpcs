@@ -1,5 +1,5 @@
-// Export the constants verbatim
-export { default as rpcs } from './constants/extraRpcs'
+// Export the constants
+export { default as rpcs } from './modules/rpcs'
 export { default as chains_by_id } from './constants/chainIds'
 
 // Export the helper functions

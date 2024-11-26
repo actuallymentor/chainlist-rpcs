@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
-import { get_rpcs_for_chains, get_rpcs_for_chain } from '../modules/filter'
+import { get_rpcs_for_chains, get_rpcs_for_chain, chains_by_name } from '../app'
+import { chains_by_id } from '../app'
 
 describe( 'get_rpcs_for_chain', () => {
 
@@ -99,6 +100,24 @@ describe( 'get_rpcs_for_chains', () => {
         expect( result[ 'ethereum' ].length ).to.be.greaterThan( 1 )
         expect( result[ 'arbitrum' ].length ).to.be.greaterThan( 1 )
 
+    } )
+
+} )
+
+describe( 'Chain constant should have coherent values', () => {
+
+    it( 'Should have some expected chain ids', () => {
+        const expected_chain_ids = [ 1, 42161 ]
+        for( const chain_id of expected_chain_ids ) {
+            expect( chains_by_id[chain_id] ).toBeDefined()
+        }
+    } )
+
+    it( 'Should have some expected chain names', () => {
+        const expected_chain_names = [ 'ethereum', 'arbitrum' ]
+        for( const chain_name of expected_chain_names ) {
+            expect( chains_by_name[chain_name] ).toBeDefined()
+        }
     } )
 
 } )
