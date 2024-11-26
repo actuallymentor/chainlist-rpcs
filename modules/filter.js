@@ -30,7 +30,7 @@ export function get_rpcs_for_chain( { chain_id, chain_name, allowed_tracking=[] 
     }
 
     // Get the rpcs for this chain id
-    let { rpcs: chain_rpcs } = rpcs[chain_id]
+    let { rpcs: chain_rpcs } = rpcs[chain_id] || { rpcs: [] }
 
     // Filter out the rpcs based on the tracking
     if( allowed_tracking.length ) chain_rpcs = chain_rpcs.filter( ( { tracking } ) => allowed_tracking.includes( tracking ) )
