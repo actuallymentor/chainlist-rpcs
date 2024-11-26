@@ -2,11 +2,14 @@
 
 [![npm version](https://badge.fury.io/js/chainlist-rpcs.svg)](https://badge.fury.io/js/chainlist-rpcs)
 
-Installation: `npm install -S chainlist-rpcs`. See [npm package](https://www.npmjs.com/package/chainlist-rpcs).
+This package is a developer-friendly way to access the public RPCs as presented on [chainlist.org](https://chainlist.org/). The RPC endpoint list is maintained by the DefiLlama team at [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist). Keep in mind that these RPC urls are public and do not come with any uptime or performance guarantees.
 
-NOTE: This module is unofficial and not maintained by Chainlist. If you want to add RPC urls, please refer to the [DefiLlama/chainlist](https://github.com/DefiLlama/chainlist) repository.
+Installation:
+```shell
+npm install -S chainlist-rpcs
+```
 
-NOTE 2: Keep in mind these RPCs are public and may have rate limits and imperfect uptime. Use them at your own risk.
+Note that the RPC list is updated once a day automatically, and that every RPC list bump results in a `patch` semver update of this package. You can see the npm deployment history [here](https://github.com/actuallymentor/chainlist-rpcs/actions/workflows/deploy-to-npm.yml).
 
 ## Usage of constants
 
@@ -15,9 +18,15 @@ The module exports constants that are objects you can access. The `rpcs` and `ch
 ```js
 import { rpcs, chains_by_id, chains_by_name } from 'chainlist-rpcs'
 
+// You can access chain names by their chain id. Chain id 1 is Ethereum mainnet.
 console.log( chains[1] ) // Output: "ethereum". Note that this is by chain id and not by index. 1 here refers to chain id 1.
+
+// You can access the RPCs for a chain by its chain id.
 console.log( rpcs[1] ) // [ { url: String, tracking: String, trackingDetails: String } ].
+
+// You can access the chain id by its name.
 console.log( chains_by_name["ethereum"] ) // Output: 1
+
 ```
 
 ## Usage of helper functions
