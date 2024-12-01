@@ -81,8 +81,8 @@ import { arbitrum } from 'viem/chains'
 import { createPublicClient, fallback, http, formatEther } from 'viem'
 
 const your_private_rpc_endpoints = [ "https://your-private-rpc-endpoint.com", "https://your-private-rpc-endpoint-2.com" ]
-const chainlink_rpc_endpoints = get_rpcs_for_chains( { chain_name: 'arbitrum' } )
-const rpc_endpoints = [ ...your_private_rpc_endpoints, ...chainlink_rpc_endpoints ]
+const chainlist_rpc_endpoints = get_rpcs_for_chains( { chain_name: 'arbitrum' } )
+const rpc_endpoints = [ ...your_private_rpc_endpoints, ...chainlist_rpc_endpoints ]
 
 const public_client = createPublicClient( {
     chain: arbitrum,
