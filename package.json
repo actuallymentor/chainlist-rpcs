@@ -1,6 +1,6 @@
 {
   "name": "chainlist-rpcs",
-  "version": "0.3.75",
+  "version": "0.3.76",
   "type": "module",
   "description": "Wrapper around the rpcs as published by DefiLlama/chainlist.",
   "main": "app.js",
