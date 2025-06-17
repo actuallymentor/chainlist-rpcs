@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-import { get_rpcs_for_chains, get_rpcs_for_chain, chains_by_name } from '../app'
+import { get_rpcs_for_chains, get_rpcs_for_chain, chains_by_name, rpcs } from '../app'
 import { chains_by_id } from '../app'
 
 describe( 'get_rpcs_for_chain', () => {
@@ -120,4 +120,22 @@ describe( 'Chain constant should have coherent values', () => {
         }
     } )
 
+} )
+
+describe( 'RPCs constant should be coherent', () => {
+    it( 'Should be a mapping of ids to arrays of rpc objects', () => {
+        expect( rpcs ).toBeDefined()
+        expect( typeof rpcs ).toBe( 'object' )
+        for( const chain_id in rpcs ) {
+            expect( rpcs[chain_id] ).toBeDefined()
+            expect( Array.isArray( rpcs[chain_id] ) ).toBe( true )
+            for( const rpc of rpcs[chain_id] ) {
+                expect( typeof rpc ).toBe( 'object' )
+                expect( rpc.url ).toBeDefined()
+                expect( typeof rpc.url ).toBe( 'string' )
+                expect( rpc.tracking ).toBeDefined()
+                expect( [ 'none', 'limited', 'yes', 'unknown', 'unspecified' ].includes( rpc.tracking ) ).toBe( true )
+            }
+        }
+    } )
 } )

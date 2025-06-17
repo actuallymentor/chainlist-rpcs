@@ -76,7 +76,7 @@ const multiple_chains_by_name = get_rpcs_for_chains( { chain_names: ["ethereum",
 ## Example usage with viem
 
 ```js
-import { get_rpcs_for_chains, get_rpcs_for_chains } from 'chainlist-rpcs'
+import { get_rpcs_for_chains } from 'chainlist-rpcs'
 import { arbitrum } from 'viem/chains'
 import { createPublicClient, fallback, http, formatEther } from 'viem'
 
