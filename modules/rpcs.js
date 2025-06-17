@@ -12,6 +12,9 @@ Object.keys( simple_rpc_list ).forEach( chainId => {
         if( typeof rpc === 'string' ) {
             return { url: rpc, tracking: 'unknown', trackingDetails: 'unknown' }
         }
+        if( !rpc.tracking ) {
+            rpc.tracking = 'unspecified'
+        }
         return rpc
     } )
 } )

@@ -133,7 +133,6 @@ describe( 'RPCs constant should be coherent', () => {
                 expect( typeof rpc ).toBe( 'object' )
                 expect( rpc.url ).toBeDefined()
                 expect( typeof rpc.url ).toBe( 'string' )
-                expect( rpc.tracking ).toBeDefined()
                 expect( [ 'none', 'limited', 'yes', 'unknown', 'unspecified' ].includes( rpc.tracking ) ).toBe( true )
             }
         }
