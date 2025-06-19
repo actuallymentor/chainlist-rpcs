@@ -292,7 +292,7 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.unifra,
       },
       {
-        url: "https://ethereum.blockpi.network/v1/rpc/public",
+        url: "https://ethereum.public.blockpi.network/v1/rpc/public",
         tracking: "limited",
         trackingDetails: privacyStatement.blockpi,
       },
@@ -1517,7 +1517,7 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.alchemy,
       },
       {
-        url: "https://arbitrum.blockpi.network/v1/rpc/public",
+        url: "https://arbitrum.public.blockpi.network/v1/rpc/public",
         tracking: "limited",
         trackingDetails: privacyStatement.blockpi,
       },
@@ -2220,7 +2220,7 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.alchemy,
       },
       {
-        url: "https://optimism.blockpi.network/v1/rpc/public",
+        url: "https://optimism.public.blockpi.network/v1/rpc/public",
         tracking: "limited",
         trackingDetails: privacyStatement.blockpi,
       },
@@ -4944,7 +4944,7 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.diamondswap,
       },
       {
-        url: "https://base.blockpi.network/v1/rpc/public",
+        url: "https://base.public.blockpi.network/v1/rpc/public",
         tracking: "limited",
         trackingDetails: privacyStatement.blockpi,
       },
@@ -7978,6 +7978,7 @@ export const extraRpcs = {
       "https://aeneid-evm-rpc.krews.xyz",
       "https://story-aeneid-rpc.spidernode.net",
       "https://evm-rpc.story.testnet.node75.org",
+      "https://story-aeneid-json-rpc.auranode.xyz"
     ],
   },
   224433: {
