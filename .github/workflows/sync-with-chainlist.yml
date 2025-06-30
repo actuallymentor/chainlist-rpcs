@@ -38,20 +38,24 @@ jobs:
       run: |
         if git diff --quiet; then
           echo "No changes detected. Exiting gracefully."
-          exit 0
+          echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
         else
           echo "Changes detected. Continuing with the workflow."
+          echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
         fi
     
     - name: Run tests to make sure everything is coherent
+      if: env.CHANGES_DETECTED == 'true'
       run: npm test
 
     - name: Install SSH Key
+      if: env.CHANGES_DETECTED == 'true'
       uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
     
     - name: Push updated patch commit
+      if: env.CHANGES_DETECTED == 'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         REPO_NAME: ${{ github.repository }}
