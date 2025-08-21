@@ -1505,6 +1505,11 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.DTEAM,
       },
+      {
+        url: "https://rpc.ankr.com/atleta_mainnet",
+        tracking: "none",
+        trackingDetails: privacyStatement.ankr,
+      },
     ],
   },
   7887: {
@@ -2193,6 +2198,26 @@ export const extraRpcs = {
         url: "wss://celo-alfajores.drpc.org",
         tracking: "none",
         trackingDetails: privacyStatement.drpc,
+      },
+    ],
+  },
+  62320: {
+    rpcs: [
+      "https://baklava-forno.celo-testnet.org",
+      {
+        url: "https://rpc.ankr.com/celo_baklava_testnet",
+        tracking: "none",
+        trackingDetails: privacyStatement.ankr,
+      },
+    ],
+  },
+  11142220: {
+    rpcs: [
+      "https://forno.celo-sepolia.celo-testnet.org",
+      {
+        url: "https://rpc.ankr.com/celo_sepolia",
+        tracking: "none",
+        trackingDetails: privacyStatement.ankr,
       },
     ],
   },
@@ -4142,7 +4167,7 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.drpc,
       },
-            {
+      {
         url: "https://moonbase-rpc.dwellir.com",
         tracking: "limited",
         trackingDetails: privacyStatement.dwellir,
@@ -7489,6 +7514,11 @@ export const extraRpcs = {
         tracking: "limited",
         trackingDetails: privacyStatement.therpc,
       },
+      {
+        url: "https://unichain-mainnet.gateway.tatum.io/",
+        tracking: "yes",
+        trackingDetails: privacyStatement.tatum,
+      },
     ],
   },
   1301: {
@@ -7860,6 +7890,11 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.ankr,
       },
+      {
+        url: "https://monad-testnet.gateway.tatum.io/",
+        tracking: "yes",
+        trackingDetails: privacyStatement.tatum,
+      },
     ],
   },
   80094: {
@@ -7920,6 +7955,11 @@ export const extraRpcs = {
         url: "https://abstract.api.onfinality.io/public",
         tracking: "limited",
         trackingDetails: privacyStatement.onfinality,
+      },
+      {
+        url: "https://abstract-mainnet.gateway.tatum.io/",
+        tracking: "yes",
+        trackingDetails: privacyStatement.tatum,
       },
     ],
   },
@@ -8233,7 +8273,7 @@ export const extraRpcs = {
   295: {
     rpcs: ["https://hedera.linkpool.pro"],
   },
-  2741: {
+  11124: {
     rpcs: [
       {
         url: "https://abstract-sepolia.drpc.org",
@@ -8435,7 +8475,10 @@ export const extraRpcs = {
     rpcs: ["https://rpc-mainnet.inichain.com"],
   },
   42421: {
-    rpcs: ["https://eth.nodebridge.xyz/assetchaintestnet/exec/c9359df1-29fe-4f4e-b06a-9f329217a086"],
+    rpcs: [
+      "https://enugu-rpc.assetchain.org",
+      "https://eth.nodebridge.xyz/assetchaintestnet/exec/b903e07d-54ee-4c4d-bffb-8b073e8163fa"
+    ],
   },
   43111: {
     rpcs: [
@@ -8465,32 +8508,34 @@ export const extraRpcs = {
       },
     ],
   },
-
-  
+  42420: {
+    rpcs: [
+      "https://mainnet-rpc.assetchain.org",
+      "https://eth.nodebridge.xyz/assetchain/exec/b2da3d33-5708-4f61-8d1e-2c677124c35a"
+    ],
+  },
   2691: {
-  rpcs: [
-    {
-      url: "https://mainnet-rpc.splendor.org",
-      tracking: "none",
-      trackingDetails: "No user tracking or data collection"
-    }
-  ],
-  websiteDead: false,
-  rpcWorking: true
-},
-2692: {
-  rpcs: [
-    {
-      url: "https://testnet-rpc.splendor.org",
-      tracking: "none",
-      trackingDetails: "No user tracking or data collection"
-    }
-  ],
-  websiteDead: false,
-  rpcWorking: true
-},
-
-
+    rpcs: [
+      {
+        url: "https://mainnet-rpc.splendor.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection"
+      }
+    ],
+    websiteDead: false,
+    rpcWorking: true
+  },
+  2692: {
+    rpcs: [
+      {
+        url: "https://testnet-rpc.splendor.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection"
+      }
+    ],
+    websiteDead: false,
+    rpcWorking: true
+  },
 };
 
 const allExtraRpcs = mergeDeep(llamaNodesRpcs, extraRpcs);
