@@ -1256,7 +1256,11 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.omnia,
       },
-      "https://fantom-json-rpc.stakely.io",
+      {
+        url: "https://fantom-json-rpc.stakely.io",
+        tracking: "none",
+        trackingDetails: privacyStatement.Stakely,
+      },
       {
         url: "https://api.zan.top/ftm-mainnet",
         tracking: "limited",
@@ -1573,7 +1577,7 @@ export const extraRpcs = {
       },
       {
         url: "https://atleta.nownodes.io",
-        tracking: "none",
+        tracking: "yes",
         trackingDetails: privacyStatement.nownodes,
       },
     ],
@@ -2239,7 +2243,11 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.drpc,
       },
-      "https://celo-json-rpc.stakely.io",
+      {
+        url: "https://celo-json-rpc.stakely.io",
+        tracking: "none",
+        trackingDetails: privacyStatement.Stakely,
+      },
       {
         url: "https://celo.api.onfinality.io/public",
         tracking: "limited",
@@ -3902,6 +3910,11 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.PulseChainRpc,
       },
+      {
+        url: "wss://ws.pulsechainrpc.com",
+        tracking: "none",
+        trackingDetails: privacyStatement.PulseChainRpc,
+      },
     ],
   },
   385: {
@@ -4812,7 +4825,11 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.drpc,
       },
       "https://eth.bd.evmos.org:8545/",
-      "https://evmos-json-rpc.stakely.io",
+      {
+        url: "https://evmos-json-rpc.stakely.io",
+        tracking: "none",
+        trackingDetails: privacyStatement.Stakely,
+      },
       "https://jsonrpc-evmos-ia.cosmosia.notional.ventures",
       "https://json-rpc.evmos.blockhunters.org",
       "https://evmos-json-rpc.agoranodes.com",
@@ -6146,7 +6163,11 @@ export const extraRpcs = {
         tracking: "yes",
         trackingDetails: privacyStatement.tenderly,
       },
-      "https://taiko-json-rpc.stakely.io/",
+      {
+        url: "https://taiko-json-rpc.stakely.io/",
+        tracking: "none",
+        trackingDetails: privacyStatement.Stakely,
+      },
       {
         url: "https://taiko.therpc.io",
         tracking: "limited",
@@ -6631,12 +6652,12 @@ export const extraRpcs = {
       "https://testnode.dioneprotocol.com/ext/bc/D/rpc",
       {
         url: "https://odyssey.nownodes.io",
-        tracking: "none",
+        tracking: "yes",
         trackingDetails: privacyStatement.nownodes,
       },
       {
         url: "wss://odyssey.nownodes.io/wss",
-        tracking: "none",
+        tracking: "yes",
         trackingDetails: privacyStatement.nownodes,
       },
     ],
@@ -7750,7 +7771,11 @@ export const extraRpcs = {
         tracking: "limited",
         trackingDetails: privacyStatement.therpc,
       },
-      "https://sonic-json-rpc.stakely.io/",
+      {
+        url: "https://sonic-json-rpc.stakely.io/",
+        tracking: "none",
+        trackingDetails: privacyStatement.Stakely,
+      },
       {
         url: "https://sonic.rpc.grove.city/v1/01fdb492",
         tracking: "yes",
@@ -8512,33 +8537,33 @@ export const extraRpcs = {
     rpcWorking: true,
   },
   2691: {
-  rpcs: [
-    {
-      url: "https://mainnet-rpc.splendor.org",
-      tracking: "none",
-      trackingDetails: "No user tracking or data collection"
-    },
+    rpcs: [
+      {
+        url: "https://mainnet-rpc.splendor.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection",
+      },
 
-    {
-      url: "https://splendor-rpc.org/",
-      tracking: "none",
-      trackingDetails: "No user tracking or data collection"
-    }
-  ],
-  websiteDead: false,
-  rpcWorking: true
-},
-2692: {
-  rpcs: [
-    {
-      url: "https://testnet-rpc.splendor.org",
-      tracking: "none",
-      trackingDetails: "No user tracking or data collection"
-    }
-  ],
-  websiteDead: false,
-  rpcWorking: true
-},
+      {
+        url: "https://splendor-rpc.org/",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection",
+      },
+    ],
+    websiteDead: false,
+    rpcWorking: true,
+  },
+  2692: {
+    rpcs: [
+      {
+        url: "https://testnet-rpc.splendor.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection",
+      },
+    ],
+    websiteDead: false,
+    rpcWorking: true,
+  },
 };
 
 const allExtraRpcs = mergeDeep(llamaNodesRpcs, extraRpcs);
