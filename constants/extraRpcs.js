@@ -8489,7 +8489,8 @@ export const extraRpcs = {
     rpcs: [
       "https://rpc1-mainnet.icbnetwork.info",
       "https://rpc2-mainnet.icbnetwork.info",
-      "https://main1.rpc-icb-network.io/",
+      "https://main1.rpc-icb-network.io",
+      "https://main2.rpc-icb-network.io",
     ],
   },
   2632500: {
@@ -8804,7 +8805,22 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.drpc,
       },
     ],
-}}
+  },
+  5042002: {
+    rpcs: [
+      {
+        url: "https://arc-testnet.drpc.org",
+        tracking: "none",
+        trackingDetails: privacyStatement.drpc,
+      },
+      {
+        url: "wss://arc-testnet.drpc.org",
+        tracking: "none",
+        trackingDetails: privacyStatement.drpc,
+      },
+    ],
+  },
+};
 
 const allExtraRpcs = mergeDeep(llamaNodesRpcs, extraRpcs);
 
