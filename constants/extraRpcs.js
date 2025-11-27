@@ -6007,6 +6007,11 @@ export const extraRpcs = {
         tracking: "limited",
         trackingDetails: privacyStatement.dwellir,
       },
+      {
+        url: "https://linea-rpc.publicnode.com",
+        tracking: "none",
+        trackingDetails: privacyStatement.publicnode,
+      },
     ],
   },
   2442: {
@@ -8513,6 +8518,7 @@ export const extraRpcs = {
       "https://rpc2-mainnet.icbnetwork.info",
       "https://main1.rpc-icb-network.io",
       "https://main2.rpc-icb-network.io",
+      "https://mahour.icbnetwork.info"
     ],
   },
   2632500: {
