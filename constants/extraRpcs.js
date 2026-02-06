@@ -2887,16 +2887,6 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.tatum,
       },
       {
-        url: "https://0xrpc.io/gno",
-        tracking: "none",
-        trackingDetails: privacyStatement["0xRPC"],
-      },
-      {
-        url: "wss://0xrpc.io/gno",
-        tracking: "none",
-        trackingDetails: privacyStatement["0xRPC"],
-      },
-      {
         url: "https://gnosis.therpc.io",
         tracking: "limited",
         trackingDetails: privacyStatement.therpc,
@@ -7591,6 +7581,9 @@ export const extraRpcs = {
       },
     ],
   },
+  5577: {
+  rpcs: ["https://rpc.taaqo.com"]
+},
   1750: {
     rpcs: [
       "https://rpc.metall2.com",
@@ -7626,6 +7619,7 @@ export const extraRpcs = {
       "https://moksha-vana-rpc.tech-coha05.xyz",
     ],
   },
+
   55244: {
     rpcs: [
       {
