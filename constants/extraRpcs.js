@@ -584,6 +584,12 @@ export const extraRpcs = {
   1975: {
     rpcs: ["https://rpc.onuschain.io"],
   },
+  2500: {
+    rpcs: [
+      "https://rpc.cchain.cc",
+      "wss://wss.cchain.cc"
+    ],
+  },
   2517: {
     rpcs: [
       "https://svp-dataseed1-testnet.svpchain.org",
@@ -4150,6 +4156,11 @@ export const extraRpcs = {
       },
       {
         url: "https://rpc.hairylabs.io",
+        tracking: "none",
+        trackingDetails: privacyStatement.hairylabs,
+      },
+      {
+        url: "wss://rpc.hairylabs.io/ws",
         tracking: "none",
         trackingDetails: privacyStatement.hairylabs,
       },
@@ -9418,6 +9429,11 @@ export const extraRpcs = {
         url: "https://evm-rpc-ql1.foxxone.one",
         tracking: "none",
         trackingDetails: "No user tracking or data collection",
+      }, 
+      {
+        url: "https://evm-rpc-ql1.mschihuahua.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection",
       },
     ],
   },
@@ -9642,6 +9658,16 @@ export const extraRpcs = {
       },
     ],
   },
+  30485: {
+    rpcs: [
+      {
+        url: "https://rpc.tronclassicscan.org:8545",
+        tracking: "limited",
+        trackingDetails:
+          "TronClassicScan public RPC may log IP addresses and request metadata for rate limiting, security, and service reliability.",
+      },
+    ],
+  },
   677: {
     rpcs: [
       {
@@ -9685,6 +9711,37 @@ export const extraRpcs = {
       },
     ],
   },
+
+  73790: {
+    rpcs: [
+      {
+        url: "https://rpc.neurovatic.ai/rpc",
+        tracking: "none",
+        trackingDetails: "NV-CHAIN sovereign RPC - no logs, no tracking. IRMINSUL node, Helsinki FI. https://neurovatic.ai/whitepaper",
+      },
+      {
+        url: "https://rpc-eu.neurovatic.ai/rpc",
+        tracking: "none",
+        trackingDetails: "NV-CHAIN sovereign RPC - no logs, no tracking. NEXUS-EU node, Nuremberg DE. https://neurovatic.ai/whitepaper",
+      },
+      {
+        url: "https://rpc-apac.neurovatic.ai/rpc",
+        tracking: "none",
+        trackingDetails: "NV-CHAIN sovereign RPC - no logs, no tracking. NEXUS-APAC node, Singapore SG. https://neurovatic.ai/whitepaper",
+      },
+      {
+        url: "https://rpc-usw.neurovatic.ai/rpc",
+        tracking: "none",
+        trackingDetails: "NV-CHAIN sovereign RPC - no logs, no tracking. NEXUS-USW node, Hillsboro OR US. https://neurovatic.ai/whitepaper",
+      },
+      {
+        url: "https://rpc-use.neurovatic.ai/rpc",
+        tracking: "none",
+        trackingDetails: "NV-CHAIN sovereign RPC - no logs, no tracking. NEXUS-USE node, Ashburn VA US. https://neurovatic.ai/whitepaper",
+      },
+    ],
+  },
+ 
   2366: {
   rpcs: [
     {
@@ -9695,8 +9752,30 @@ export const extraRpcs = {
     },
   ],
 },
-};
-
+  1229800785: {
+    rpcs: [
+      {
+        url: "https://relay.itaninetworkchain.com/jsonrpc",
+        tracking: "none",
+        trackingDetails: "iTani Network Chain relay node — no user tracking, no data collection.",
+      },
+      {
+        url: "https://node.itaninetworkchain.com/jsonrpc",
+        tracking: "none",
+        trackingDetails: "iTani Network Chain primary node — no user tracking, no data collection.",
+      },
+    ],
+  },
+  421018: {
+    rpcs: [
+      {
+        url: "https://evm-rpc-infinite.mschihuahua.org",
+        tracking: "none",
+        trackingDetails: "No user tracking or data collection",
+      },
+    ],
+  }
+};  
 const allExtraRpcs = mergeDeep(llamaNodesRpcs, extraRpcs);
 
 export default allExtraRpcs;
