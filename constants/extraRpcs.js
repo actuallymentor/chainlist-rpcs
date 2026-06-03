@@ -1752,6 +1752,14 @@ export const extraRpcs = {
       },
     ],
   },
+  1236: {
+    rpcs: [
+      {
+        url: "https://rpc.brainark.online",
+        tracking: "none",
+      },
+    ],
+  },
   2340: {
     rpcs: [
       {
@@ -4673,16 +4681,6 @@ export const extraRpcs = {
       },
       {
         url: "https://xlayer.rpc.blxrbdn.com",
-        tracking: "yes",
-        trackingDetails: privacyStatement.bloxroute,
-      },
-      {
-        url: "https://okx-xlayer.rpc.blxrbdn.com",
-        tracking: "yes",
-        trackingDetails: privacyStatement.bloxroute,
-      },
-      {
-        url: "https://flap-xlayer.rpc.blxrbdn.com",
         tracking: "yes",
         trackingDetails: privacyStatement.bloxroute,
       },
