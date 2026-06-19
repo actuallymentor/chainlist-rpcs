@@ -956,6 +956,7 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.nodeflare,
       },
       "https://bsc-dataseed.bnbchain.org/",
+      "https://bsc.campioneinfrastructure.com",
       "https://bsc-dataseed1.defibit.io/",
       "https://bsc-dataseed1.ninicoin.io/",
       "https://bsc-dataseed2.defibit.io/",
@@ -8621,7 +8622,6 @@ export const extraRpcs = {
         tracking: "none",
         trackingDetails: privacyStatement.bctech,
       },
-      "https://evm-rpc-archive.story.node75.org",
       {
         url: "https://story-json-rpc.stakely.io/",
         tracking: "none",
@@ -9017,7 +9017,6 @@ export const extraRpcs = {
       },
       "https://aeneid-evm-rpc.krews.xyz",
       "https://story-aeneid-rpc.spidernode.net",
-      "https://evm-rpc.story.testnet.node75.org",
       "https://story-aeneid-json-rpc.auranode.xyz",
     ],
   },
