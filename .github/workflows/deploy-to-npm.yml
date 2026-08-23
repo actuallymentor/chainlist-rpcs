@@ -1,36 +1,40 @@
 name: Deploy to npm
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "package.json"
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
-  # Build the frontend files
-  build:
-    name: Deploy changes to npm
+  publish:
+    name: Publish package
+    if: github.ref == 'refs/heads/main'
 
     runs-on: ubuntu-latest
 
     steps:
-      # Environment and dependency setup
-      - name: Cloning repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
-      # Set up node and install frontend dependencies
-      - name: Set up Node.js (.nvmrc)
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm ci
 
-      - name: "Publish to NPM"
-        run: |
-          npm publish --access public
-        env:
-          NPM_ACCESS_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+      - name: Run tests
+        run: npm test -- --run
+
+      - name: Publish package
+        run: npm publish --access public
