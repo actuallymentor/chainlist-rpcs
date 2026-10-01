@@ -1,6 +1,6 @@
 {
   "name": "chainlist-rpcs",
-  "version": "0.5.314",
+  "version": "1.0.0",
   "type": "module",
   "description": "Wrapper around the rpcs as published by DefiLlama/chainlist.",
   "main": "app.js",
@@ -27,7 +27,28 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-unused-imports": "^3.2.0",
     "husky": "^9.1.6",
+    "typescript": "^7.0.2",
+    "vite": "^5.4.21",
     "vitest": "^2.1.5"
   },
-  "types": "types.d.ts"
+  "types": "types.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types.d.ts",
+      "default": "./app.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "app.js",
+    "types.d.ts",
+    "modules/*.js",
+    "constants/chainIds.js",
+    "constants/extraRpcs.js",
+    "utils/*.js",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  }
 }

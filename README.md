@@ -11,6 +11,37 @@ npm install -S chainlist-rpcs
 
 Note that the RPC list is updated once a day automatically, and that every RPC list bump results in a `patch` semver update of this package. You can see the npm deployment history [here](https://github.com/actuallymentor/chainlist-rpcs/actions/workflows/deploy-to-npm.yml).
 
+## Environments
+
+Native ESM, zero runtime dependencies. Supports Node.js 22+, modern browsers,
+module workers, and bundlers such as Vite. TypeScript declarations support
+`NodeNext` and `Bundler` resolution.
+
+```js
+// Node ESM or a browser bundler
+import { get_rpcs_for_chain } from 'chainlist-rpcs'
+```
+
+```js
+// CommonJS (inside an async function)
+const { get_rpcs_for_chain } = await import('chainlist-rpcs')
+```
+
+For a browser without a bundler, serve the package files and import `app.js`:
+
+```html
+<script type="module">
+  import { get_rpcs_for_chain } from './node_modules/chainlist-rpcs/app.js'
+  console.log(get_rpcs_for_chain({ chain_id: 1 }))
+</script>
+```
+
+Serve over HTTP(S); keep the package's directory structure intact. An import map
+can map `chainlist-rpcs` to that URL. No Node polyfills or transpilation required.
+
+**1.0 migration:** import from `chainlist-rpcs`; internal package subpaths are no
+longer public. Node versions below 22 are outside the supported baseline.
+
 ## Usage of constants
 
 The module exports constants that are objects you can access. The `rpcs` and `chains_by_id` constants which equal the chainlist sources [in this folder of their repository](https://github.com/DefiLlama/chainlist/tree/main/constants). The `chains_by_name` constant is an object that maps chain names to their id.
@@ -19,13 +50,13 @@ The module exports constants that are objects you can access. The `rpcs` and `ch
 import { rpcs, chains_by_id, chains_by_name } from 'chainlist-rpcs'
 
 // You can access chain names by their chain id. Chain id 1 is Ethereum mainnet.
-console.log( chains[1] ) // Output: "ethereum". Note that this is by chain id and not by index. 1 here refers to chain id 1.
+console.log( chains_by_id[1] ) // Output: "ethereum". Note that this is by chain id and not by index. 1 here refers to chain id 1.
 
 // You can access the RPCs for a chain by its chain id.
 console.log( rpcs[1] ) // [ { url: String, tracking: String, trackingDetails: String } ].
 
 // You can access the chain id by its name.
-console.log( chains_by_name["ethereum"] ) // Output: 1
+console.log( chains_by_name["ethereum"] ) // Output: "1"
 
 ```
 
@@ -62,10 +93,10 @@ export function get_rpcs_for_chains( { chain_ids=[], chain_names=[], allowed_tra
 Example usage:
 
 ```js
-import { get_rpcs_for_chains, get_rpcs_for_chains } from 'chainlist-rpcs'
+import { get_rpcs_for_chain, get_rpcs_for_chains } from 'chainlist-rpcs'
 
-const single_chain_by_id = get_rpcs_for_chains( { chain_id: 1 } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
-const single_chain_by_name = get_rpcs_for_chains( { chain_name: "ethereum" } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
+const single_chain_by_id = get_rpcs_for_chain( { chain_id: 1 } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
+const single_chain_by_name = get_rpcs_for_chain( { chain_name: "ethereum" } ) // Output: [ { url: String, tracking: String, trackingDetails: String } ]
 
 const multiple_chains_by_id = get_rpcs_for_chains( { chain_ids: [1, 42161] } ) // Output: { 1: [ { url: String, tracking: String, trackingDetails: String } ], 42161: [ { url: String, tracking: String, trackingDetails: String } ], ethereum: [ { url: String, tracking: String, trackingDetails: String } ], arbitrum: [ { url: String, tracking: String, trackingDetails: String } ] }
 
@@ -76,12 +107,12 @@ const multiple_chains_by_name = get_rpcs_for_chains( { chain_names: ["ethereum",
 ## Example usage with viem
 
 ```js
-import { get_rpcs_for_chains } from 'chainlist-rpcs'
+import { get_rpcs_for_chain } from 'chainlist-rpcs'
 import { arbitrum } from 'viem/chains'
 import { createPublicClient, fallback, http, formatEther } from 'viem'
 
 const your_private_rpc_endpoints = [ "https://your-private-rpc-endpoint.com", "https://your-private-rpc-endpoint-2.com" ]
-const chainlist_rpc_endpoints = get_rpcs_for_chains( { chain_name: 'arbitrum' } )
+const chainlist_rpc_endpoints = get_rpcs_for_chain( { chain_name: 'arbitrum' } ).map( rpc => typeof rpc === 'string' ? rpc : rpc.url )
 const rpc_endpoints = [ ...your_private_rpc_endpoints, ...chainlist_rpc_endpoints ]
 
 const public_client = createPublicClient( {

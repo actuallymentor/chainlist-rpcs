@@ -1,4 +1,4 @@
-import rpcs from '../constants/extraRpcs'
+import rpcs from '../constants/extraRpcs.js'
 
 // The llama format is { [Number]: { rpcs: [] } }, we can simplify that
 const simple_rpc_list = Object.keys( rpcs ).reduce( ( acc, chainId ) => {

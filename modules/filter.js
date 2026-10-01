@@ -1,7 +1,7 @@
 // Import the constants
-import rpcs from '../constants/extraRpcs'
-import chains from '../constants/chainIds'
-import { chains_by_name } from './chains'
+import rpcs from '../constants/extraRpcs.js'
+import chains from '../constants/chainIds.js'
+import { chains_by_name } from './chains.js'
 
 /**
  * Retrieves the RPC urls for a specified blockchain.

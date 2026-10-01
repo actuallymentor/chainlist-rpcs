@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 
-import { get_rpcs_for_chains, get_rpcs_for_chain, chains_by_name, rpcs } from '../app'
-import { chains_by_id } from '../app'
+import { get_rpcs_for_chains, get_rpcs_for_chain, chains_by_name, rpcs } from '../app.js'
+import { chains_by_id } from '../app.js'
 
 describe( 'get_rpcs_for_chain', () => {
 

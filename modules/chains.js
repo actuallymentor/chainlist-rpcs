@@ -1,5 +1,5 @@
 // Import chains
-import chains from '../constants/chainIds'
+import chains from '../constants/chainIds.js'
 
 // Create a list of the chain names
 const chain_names = Object.values( chains )
