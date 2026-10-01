@@ -5,6 +5,7 @@
 ### Fixed
 - Use explicit extensions for native Node and browser ESM imports.
 - Export TypeScript declarations for modern module resolution.
+- Preserve the upstream license in the published package.
 - Correct helper usage in README examples.
 
 ### Changed

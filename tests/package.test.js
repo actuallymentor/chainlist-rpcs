@@ -18,7 +18,8 @@ beforeAll( () => {
     const paths = files.map( ( { path } ) => path )
 
     expect( paths ).toContain( `types.d.ts` )
-    expect( paths.every( path => /^(app\.js|types\.d\.ts|package\.json|README\.md|CHANGELOG\.md|(modules|constants|utils)\/[^/]+\.js)$/.test( path ) ) ).toBe( true )
+    expect( paths ).toContain( `constants/LICENSE` )
+    expect( paths.every( path => /^(app\.js|types\.d\.ts|package\.json|README\.md|CHANGELOG\.md|constants\/LICENSE|(modules|constants|utils)\/[^/]+\.js)$/.test( path ) ) ).toBe( true )
 
     writeFileSync( join( consumer, `package.json` ), JSON.stringify( { private: true, type: `module` } ) )
     execFileSync( `npm`, [ `install`, join( consumer, filename ), `--ignore-scripts`, `--no-audit`, `--no-fund`, `--no-package-lock` ], { cwd: consumer } )

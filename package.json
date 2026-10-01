@@ -43,6 +43,7 @@
     "app.js",
     "types.d.ts",
     "modules/*.js",
+    "constants/LICENSE",
     "constants/chainIds.js",
     "constants/extraRpcs.js",
     "utils/*.js",
