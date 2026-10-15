@@ -5213,6 +5213,11 @@ export const extraRpcs = {
   324: {
     rpcs: [
       {
+        url: "https://rpc.hostdefi.com/api/rpc/zksync-era",
+        tracking: "limited",
+        trackingDetails: privacyStatement.hostdefi,
+      },
+      {
         url: "https://lb.routeme.sh/rpc/evm/324",
         tracking: "limited",
         trackingDetails: privacyStatement.routemesh,
@@ -5288,6 +5293,7 @@ export const extraRpcs = {
   },
   196: {
     rpcs: [
+      "https://xlayerrpc.okx.com",
       {
         url: "https://lb.routeme.sh/rpc/evm/196",
         tracking: "limited",
@@ -5299,7 +5305,6 @@ export const extraRpcs = {
         trackingDetails: privacyStatement.nodeflare,
       },
       "https://rpc.xlayer.tech",
-      "https://xlayerrpc.okx.com",
       {
         url: "https://endpoints.omniatech.io/v1/xlayer/mainnet/public",
         tracking: "none",
@@ -6738,6 +6743,11 @@ export const extraRpcs = {
   },
   534352: {
     rpcs: [
+      {
+        url: "https://rpc.hostdefi.com/api/rpc/scroll",
+        tracking: "limited",
+        trackingDetails: privacyStatement.hostdefi,
+      },
       {
         url: "https://lb.routeme.sh/rpc/evm/534352",
         tracking: "limited",
